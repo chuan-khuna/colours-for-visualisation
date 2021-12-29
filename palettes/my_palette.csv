@@ -1,0 +1,15 @@
+name,color,type,note
+blue,#202F66,accent,
+orange,#FF7048,accent,
+purple,#8B87EA,accent,
+yellow,#F3D36E,accent,
+pink,#D869AB,accent,
+cyan,#54C9B9,accent,
+darker_purple,#7F68D0,accent_s,
+lighter_yellow,#F9DF16,accent_s,
+danger,#FF4F72,accent_ui,
+safe,#58EDB9,accent_ui,
+text_black,#32363A,text,11.4:1
+text_light1, #6F7273,text,4.5:1
+text_light2, #8B8E8F,text,3:1
+bg_cream,#FAF7F4,background,
