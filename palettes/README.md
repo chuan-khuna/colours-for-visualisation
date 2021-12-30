@@ -10,6 +10,6 @@
   - `background`
   - `text`
   - `accent`: main colours in chart
-    - `accent_ui`: special colours in chart/ui for example: safe vs danger
+    - `accent_ui`: special colours in chart/ui for example: safe vs danger, chart grids
     - `accent_s`: secondary accent
 - `note`: (`optional`)

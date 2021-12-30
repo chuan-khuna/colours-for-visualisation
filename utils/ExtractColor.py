@@ -26,7 +26,8 @@ def extract_palette(image_path, max_width=400, ratio_theshold=0.00001, deltaE_th
         img_size = np.array(img_size, dtype=np.int)
         img.resize((img_size[0], img_size[1]))
 
-    img_arr = np.array(img)
+    # select only RGB
+    img_arr = np.array(img)[:, :, :3]
     img_arr = img_arr.reshape((np.product(img_arr.shape[:2]), 3))
 
     rgb, counts = np.unique(img_arr, axis=0, return_counts=True)
@@ -54,7 +55,7 @@ def extract_palette(image_path, max_width=400, ratio_theshold=0.00001, deltaE_th
                     freq_used.loc[i, 'freq'] += color2['freq']
                     freq_used.loc[j, 'unique'] = 0
 
-    freq_used = freq_used[freq_used['unique'] == 1]
+    freq_used = freq_used[freq_used['unique'] == 1].reset_index().drop(columns=['index'])
     freq_used['ratio'] = freq_used['freq'] / freq_used['freq'].sum()
 
     return freq_used[['hex', 'ratio']]
