@@ -13,5 +13,6 @@ text_black,#32363A,text,11.4:1
 text_light1,#6F7273,text,4.5:1
 text_light2,#8B8E8F,text,3:1
 bg_cream,#FAF7F4,background,
+FT_salmon,#fff1e5,background,pick from FT website CSS
 pure_white,#FFFFFF,background,
 pure_black,#000000,text,

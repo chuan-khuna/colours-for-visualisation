@@ -184,7 +184,7 @@ def plot_line_vs_bg(color_df, accent_type, linewidth=1):
 
     background_colors = color_df[color_df['type'] == 'background'].reset_index()
     accent_colors = color_df[color_df['type'] == accent_type]
-    phi_diff = 180 / len(accent_colors)
+    phi_diff = 90 / len(accent_colors)
 
     each_axes_h = 5
     num_rows = len(background_colors)

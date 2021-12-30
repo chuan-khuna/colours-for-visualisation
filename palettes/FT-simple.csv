@@ -1,0 +1,11 @@
+name,color,type,note
+red,#cc2838,accent,
+blue,#32afd8,accent,
+green,#7ecc99,accent,
+orange,#e67c60,accent,
+chart_annot,#a29991,accent_ui,
+title_text,#000000,text,
+text_s,#4b4744,text,
+salmon,#fff1e5,background,pick from FT website CSS
+pure_white,#FFFFFF,background,
+pure_black,#000000,text,
