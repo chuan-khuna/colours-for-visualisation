@@ -2,9 +2,11 @@
 .ipynb_checkpoints
 *.pyc
 
-*.jpg
-*.png
-*.jpeg
+./*.jpg
+./*.png
+./*.jpeg
 
 Untitled.ipynb
 Untitled[a-zA-Z0-9].ipynb
+
+!example_images/
