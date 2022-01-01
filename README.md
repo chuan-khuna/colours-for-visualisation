@@ -16,9 +16,11 @@ sns.lineplot(linewidth=...)
 sns.scatterplot()
 ```
 
-- [linewidth's unit](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html) is `point`
+- [figsize's unit](https://matplotlib.org/stable/api/figure_api.html) is **inch**.
+- [linewidth's unit](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html) is **point**
+- 1 typography point, 1 DTP point = 1/72 inch = 0.35mm
 
 for markers see:
 
 - [matplotlib marker's `s`](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter)
-- `s` = `markersize ** 2` (unit is `point`)
+- `s` = `markersize ** 2`, markersize's unit is **point**
