@@ -3,11 +3,6 @@ import pandas as pd
 from PIL import Image
 from .Color import Color
 
-import time
-
-ITER_REPORT = 500
-
-
 def rgb_to_hex(row):
     r = row['r']
     g = row['g']
@@ -21,7 +16,6 @@ def extract_palette(image_path, max_width=256, deltaE_threshold=20):
     img_size = np.array(img.size)
 
     # resize image
-    st = time.time()
     if np.max(img_size) > max_width:
         img_size = img_size // (np.max(img_size) / max_width)
         img_size = np.array(img_size, dtype=np.int)
@@ -29,8 +23,6 @@ def extract_palette(image_path, max_width=256, deltaE_threshold=20):
 
     img_arr = np.array(img)
     img_arr = img_arr.reshape((np.product(img_arr.shape[:2]), 3))
-
-    print(img_arr.shape)
 
     rgb, counts = np.unique(img_arr, axis=0, return_counts=True)
 
@@ -45,12 +37,8 @@ def extract_palette(image_path, max_width=256, deltaE_threshold=20):
 
     num_colors = len(df)
 
-    print(f"Resize image, convert it to data frame: {time.time() - st:.3e} s")
-
-    st = time.time()
     for i in range(num_colors):
-        if i % ITER_REPORT == 0:
-            print(f"iteration {i:>{len(str(num_colors))}}/{num_colors}: {time.time() - st:.3e} s")
+
         c1 = Color(rgb[i])
 
         if counts[i] > 0:
@@ -59,8 +47,6 @@ def extract_palette(image_path, max_width=256, deltaE_threshold=20):
                 if c1.delta_E(c2) < deltaE_threshold:
                     counts[i] += counts[j]
                     counts[j] = 0
-
-    print(f"Finished merging colors: {time.time() - st:.3e} s")
 
     df = pd.DataFrame({'color': rgb[counts > 0], 'freq': counts[counts > 0]})
     # df = pd.DataFrame({'color': [rgb_to_hex(i) for i in rgb], 'freq': counts})
