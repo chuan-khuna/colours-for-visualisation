@@ -16,6 +16,11 @@ def to_list_int(array_like):
 class Theme:
     """[summary]
     calculate size in point unit for using in matplotlib theme
+
+    This is inspired by Utopia fluid css calculator.
+    
+    To ask how many element you want to show in a particular axis 
+    might be easier to calculate the size of that element
     """
 
     def __init__(self, figsize=(10, 5), dpi=200, n_elem=200, n_base_font=25, font_step=1.618):
@@ -57,7 +62,8 @@ class Theme:
         self.figsize_pt = self.figsize * self.PPI
         self.px_per_pt = np.round(self.dpi / np.float(self.PPI), 2)
         self.element_pt = np.round(self._inch_per_elem(self.figsize[1], self.n_elem) * self.PPI, 2)
-        self.base_font_pt = np.round(self._inch_per_elem(self.figsize[1], self.n_base_font) * self.PPI, 2)
+        self.font_pt = np.round(self._inch_per_elem(self.figsize[1], self.n_base_font) * self.PPI, 2)
+        self.font_sizes = self.get_font_sizes(1, 1)
 
     def _get_theme(self):
         self._update()
@@ -69,8 +75,8 @@ class Theme:
             'figsize_px': to_list_int(self.figsize_px),
             'figsize_pt': to_list(self.figsize_pt),
             'vertical_element_pt': self.element_pt,
-            'vertical_base_font_pt': self.base_font_pt,
-            'font_sizes': self.get_font_sizes(1, 1)
+            'vertical_font_pt': self.font_pt,
+            'font_sizes': self.font_sizes
         }
 
     def _inch_per_elem(self, inch, n_elem):
@@ -124,4 +130,4 @@ aspect ratio(w:h) = {self.aspect_ratio[0]} : {self.aspect_ratio[1]}
         assert n_lower > 0 and n_higher > 0
         assert isinstance(n_lower, int) and isinstance(n_higher, int)
         x = np.round(self.font_step**np.arange(-n_lower, n_higher + 1, 1), 2)
-        return to_list(x * self.base_font_pt, 1)
+        return to_list(x * self.font_pt, 1)
