@@ -6,6 +6,11 @@ def to_list(array):
 
 
 class FluidSpace:
+    """[summary]
+    This class is in spired by https://utopia.fyi/.
+
+    Calculate the size of element (in pt) which proportionally scale to a given length. 
+    """
 
     def __init__(self, length=1, space=25, scale=1.618, n_scale=(2, 2)):
         assert length > 0 and isinstance(length, (int, float))

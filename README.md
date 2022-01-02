@@ -18,7 +18,7 @@ sns.scatterplot(s=...)
 
 > To ask "How many element I want to show in a particular axis(length)?" might be easier to calculate the size of that element.
 
-This may be a simple method to auto select element size that suite for a given figure size.
+This may be a simple method to auto select element size that suit for a given figure size.
 
 ```py
 # figsize = (w, h)
